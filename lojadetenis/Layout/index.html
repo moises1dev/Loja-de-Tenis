@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FindSneakers Store</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#">FindSneakers Store</a>
+
+      <nav class="main-nav" aria-label="Navegação principal">
+        <a href="#home">Início</a>
+        <a href="#produtos">Produtos</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#contato">Contato</a>
+      </nav>
+
+      <div class="header-actions">
+        <button id="btn-search" aria-label="Pesquisar">🔍</button>
+        <a class="btn primary" href="#admin">Área Admin</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <h1>FindSneakers — Tênis que combinam com seu estilo</h1>
+        <p>Encontre os melhores modelos, gerencie seu estoque e venda com confiança.</p>
+        <a href="#produtos" class="btn large">Ver Produtos</a>
+      </div>
+      <div class="hero-image" aria-hidden="true">
+        <img src="Logo.png" alt="Logo" />
+      </div>
+    </div>
+  </section>
+
+  <!-- FILTER + LIST -->
+  <section id="produtos" class="products-section">
+    <div class="container">
+      <div class="products-header">
+        <h2>Produtos</h2>
+        <div class="filters">
+          <select id="filter-brand" aria-label="Filtrar por marca">
+            <option value="">Todas as marcas</option>
+            <option value="nike">Nike</option>
+            <option value="adidas">Adidas</option>
+            <option value="puma">Puma</option>
+            <option value="Olympikus">Olympikus</option>
+          </select>
+          <input id="search-input" type="search" placeholder="Pesquisar nome..." aria-label="Pesquisar produtos">
+        </div>
+      </div>
+
+      <div id="products-grid" class="grid">
+        <!-- Product cards are injected by app.js -->
+      </div>
+
+      <div id="empty-msg" class="empty hidden">
+        <p>Nenhum produto encontrado.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="sobre" class="about container">
+    <h3>Sobre a FindSneakers</h3>
+    <p>
+      Projeto acadêmico — FindSneakers Store. Sistema CRUD para gerenciamento de produtos.
+      Frontend responsivo com foco em usabilidade e integração com backend (Zend + Doctrine).
+    </p>
+  </section>
+
+  <!-- CONTACT -->
+  <footer id="contato" class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <h4>FindSneakers</h4>
+        <p>Rua do Futuro, 123 — Seu Bairro • (00) 0000-0000</p>
+      </div>
+
+      <div>
+        <h4>Links</h4>
+        <nav class="footer-nav">
+          <a href="#produtos">Produtos</a>
+          <a href="#sobre">Sobre</a>
+          <a href="#admin">Admin</a>
+        </nav>
+      </div>
+
+      <div>
+        <h4>Newsletter</h4>
+        <form id="newsletter-form" class="newsletter" aria-label="Inscreva-se">
+          <input type="email" placeholder="Seu email" required />
+          <button class="btn">Inscrever</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="container copyright">
+      <small>© <span id="year"></span> FindSneakers Store — Todos os direitos reservados.</small>
+    </div>
+  </footer>
+
+  <!-- ADMIN MODAL (simples front-end para demonstração do CRUD) -->
+  <div id="admin" class="modal" aria-hidden="true">
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="adminTitle">
+      <button class="modal-close" data-close>✕</button>
+      <h2 id="adminTitle">Área Admin — Gerenciar Produtos</h2>
+
+      <form id="product-form" class="form-grid" aria-label="Formulário de produto">
+        <input type="hidden" id="produto-id" />
+        <label>Nome<input id="produto-nome" required /></label>
+        <label>Marca
+          <select id="produto-marca" required>
+            <option value="nike">Nike</option>
+            <option value="adidas">Adidas</option>
+            <option value="puma">Puma</option>
+            <option value="olympikus">Olympikus</option>
+            <option value="outra">Outra</option>
+          </select>
+        </label>
+        <label>Preço<input id="produto-preco" type="number" step="0.01" required /></label>
+        <label>Tamanho<input id="produto-tamanho" /></label>
+        <label>Estoque<input id="produto-estoque" type="number" /></label>
+        <label>Imagem (URL)<input id="produto-imagem" /></label>
+
+        <div class="form-actions">
+          <button type="submit" class="btn primary">Salvar</button>
+          <button type="button" id="btn-clear" class="btn">Limpar</button>
+        </div>
+      </form>
+
+      <hr />
+      <h3>Produtos cadastrados</h3>
+      <div id="admin-list" class="admin-list"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
