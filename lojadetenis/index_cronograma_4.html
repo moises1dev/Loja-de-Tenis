@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cronograma - FindSneakers Store</title>
+  <style>
+    :root{
+      --primary:#2E64FE;
+      --muted:#6b7280;
+      --bg:#fafafa;
+      --card:#ffffff;
+      --border:#e6e9ef;
+      --stripe:#f4f6fb;
+      --font-sans: Inter, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    html,body{
+      height:100%;
+      margin:0;
+      font-family:var(--font-sans);
+      background:linear-gradient(180deg, #f7f9ff 0%, var(--bg) 100%);
+      color:#111827;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:24px;
+    }
+
+    .container{
+      max-width:1100px;
+      margin:0 auto;
+    }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:12px;
+      padding:20px;
+      box-shadow: 0 6px 18px rgba(18,38,63,0.06);
+    }
+
+    header {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:18px;
+    }
+
+    header h1{
+      margin:0;
+      font-size:20px;
+      letter-spacing: -0.2px;
+    }
+
+    header p{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .table-wrap{
+      overflow-x:auto;
+      margin-top:10px;
+    }
+
+    table.cronograma{
+      width:100%;
+      border-collapse:collapse;
+      border-spacing:0;
+      min-width:900px; /* garante horizontal scroll em telas pequenas */
+    }
+
+    table.cronograma thead th{
+      background:var(--primary);
+      color:#fff;
+      text-align:center;
+      padding:12px 10px;
+      font-weight:700;
+      font-size:13px;
+      vertical-align:middle;
+      border-top-left-radius:8px;
+      border-top-right-radius:8px;
+    }
+
+    table.cronograma thead th:first-child{ border-top-left-radius:8px; }
+    table.cronograma thead th:last-child{ border-top-right-radius:8px; }
+
+    table.cronograma tbody tr:nth-child(even) td{
+      background:var(--stripe);
+    }
+
+    .col-week { width:60px; text-align:center; font-weight:600; }
+    .col-period { width:140px; color:var(--muted); text-align:center; }
+    .col-stage { width:220px; font-weight:600; }
+    .col-desc { width:420px; text-align:left; white-space:pre-wrap; }
+    .col-deliver { width:150px; text-align:center; color:var(--muted); }
+
+    /* Responsive tweak: stack on very small screens */
+    @media (max-width:560px){
+      table.cronograma{ min-width:700px; }
+    }
+
+    /* Print-friendly */
+    @media print{
+      body{ padding:0; background: #fff; }
+      header p { display:none; }
+      .card { box-shadow:none; border: none; padding:0; }
+      table.cronograma thead th { -webkit-print-color-adjust:exact; }
+    }
+
+    /* small helper for list inside cell */
+    .cell-list{ margin:0; padding-left:18px; }
+
+table.cronograma,
+table.cronograma th,
+table.cronograma td {
+  border: 1px solid #999;
+}
+
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card" role="region" aria-labelledby="cronograma-title">
+      <header>
+        <div>
+          <h1 id="cronograma-title">Cronograma do Projeto – FindSneakers Store</h1>
+          <p>Apresentação final: 24 de novembro • Projeto CRUD completo (Zend + Doctrine)</p>
+        </div>
+        <div style="text-align:right">
+          <small style="color:var(--muted)">Documento: Cronograma atualizado</small>
+        </div>
+      </header>
+
+      <div class="table-wrap" role="table" aria-label="Cronograma de atividades">
+        <table class="cronograma" summary="Cronograma com semanas, períodos, etapas, descrições e entregas">
+          <thead>
+            <tr>
+              <th scope="col">Semana</th>
+              <th scope="col">Período</th>
+              <th scope="col">Etapa</th>
+              <th scope="col">Descrição das Atividades</th>
+              <th scope="col">Entregas</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="col-week">1</td>
+              <td class="col-period">6 a 13 de outubro</td>
+              <td class="col-stage">Etapa 1 – Definição e Planejamento (Concluída)</td>
+              <td class="col-desc">
+                • Escolha do tema, público-alvo e nome do projeto.
+              </td>
+              <td class="col-deliver">Tema e nomes dos integrantes do grupo</td>
+            </tr>
+
+            <tr>
+              <td class="col-week">2</td>
+              <td class="col-period">13 a 20 de outubro</td>
+              <td class="col-stage">Etapa 2 – Definição e Planejamento (Concluída)</td>
+              <td class="col-desc">
+                • Elaboração do cronograma.<br>
+                • Estruturação inicial da documentação e objetivos.
+              </td>
+              <td class="col-deliver">Cronograma e documento de planejamento</td>
+            </tr>
+
+            <tr>
+              <td class="col-week">3</td>
+              <td class="col-period">20 a 27 de outubro</td>
+              <td class="col-stage">Etapa 3 – Esboço do layout e Banco de Dados (Concluída)</td>
+              <td class="col-desc">
+                • Esboço do layout e das funcionalidades principais.<br>
+                • Criação do banco de dados e configuração do Doctrine ORM.
+              </td>
+              <td class="col-deliver">Modelo ER + Estrutura MVC funcional</td>
+            </tr>
+
+            <tr>
+              <td class="col-week">4</td>
+              <td class="col-period">27 de outubro a 3 de novembro</td>
+              <td class="col-stage">Etapa 4 – Implementação do CRUD (Concluída)</td>
+              <td class="col-desc">
+                • Desenvolvimento das telas de listagem, inclusão, edição e exclusão de produtos.<br>
+                • Testes das operações CRUD.
+              </td>
+              <td class="col-deliver">CRUD completo</td>
+            </tr>
+
+            <tr>
+              <td class="col-week">5</td>
+              <td class="col-period">3 a 10 de novembro</td>
+              <td class="col-stage">Etapa 5 – Frontend e Estilo Final (Concluída)</td>
+              <td class="col-desc">
+                • Desenvolvimento do design visual e responsividade (HTML, CSS, JS).<br>
+                • Início da estrutura MVC no Zend Framework.<br>
+                • Ajustes visuais e melhorias na interface da loja.
+              </td>
+              <td class="col-deliver">Interface refinada e responsiva</td>
+            </tr>
+
+            <tr>
+              <td class="col-week">6</td>
+              <td class="col-period">10 a 17 de novembro</td>
+              <td class="col-stage">Etapa 6 – Login e Autenticação (Concluída)</td>
+              <td class="col-desc">
+                • Testes das operações CRUD com o banco de dados.<br>
+                • Implementação de login e controle de sessão.<br>
+                • Proteção de páginas internas.
+              </td>
+              <td class="col-deliver">Login funcional</td>
+            </tr>
+
+            <tr>
+              <td class="col-week">7</td>
+              <td class="col-period">17 a 24 de novembro</td>
+              <td class="col-stage">Etapa 7 – Testes, Documentação e Apresentação (Pendente)</td>
+              <td class="col-desc">
+                • Testes finais e correção de bugs.<br>
+                • Documentação final.<br>
+                • Preparação para apresentação técnica.
+              </td>
+              <td class="col-deliver">Projeto final no GitHub + Manual + Apresentação</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <footer style="margin-top:16px; color:var(--muted); font-size:13px;">
+        Atualizado: 03 de Novembro de 2025 — Para editar, altere o HTML diretamente.
+      </footer>
+    </div>
+  </div>
+</body>
+</html>
