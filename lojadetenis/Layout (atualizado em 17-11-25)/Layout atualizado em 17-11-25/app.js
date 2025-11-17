@@ -567,4 +567,14 @@ document.addEventListener('DOMContentLoaded', () => {
       if(ev.target === adminLoginModal) closeAdminLogin();
     });
   }
+
+// Logout admin
+const adminLogoutBtn = $('#admin-logout-btn');
+if(adminLogoutBtn){
+  adminLogoutBtn.addEventListener('click', () => {
+    setLoggedAdmin(null);
+    closeAdmin();
+    alert('Você saiu da Área Admin.');
+  });
+}
 });
