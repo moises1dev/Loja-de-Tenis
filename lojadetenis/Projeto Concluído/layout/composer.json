@@ -1,0 +1,19 @@
+{
+  "name": "mosa/findsneakers",
+  "description": "Projeto FindSneakers com CRUD, Doctrine e Laminas",
+  "type": "project",
+  "require": {
+    "php": ">=8.0",
+    "doctrine/orm": "^2.18",
+    "laminas/laminas-mvc": "^3.5",
+    "laminas/laminas-router": "^3.8",
+    "laminas/laminas-servicemanager": "^3.15",
+    "laminas/laminas-view": "^2.24"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/",
+      "Application\\": "module/Application/src/"
+    }
+  }
+}
