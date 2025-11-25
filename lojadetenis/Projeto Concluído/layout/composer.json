@@ -1,19 +1,20 @@
 {
-  "name": "mosa/findsneakers",
-  "description": "Projeto FindSneakers com CRUD, Doctrine e Laminas",
+  "name": "moises/findsneakers",
+  "description": "Projeto FindSneakers Store com CRUD, login, Doctrine ORM e Laminas MVC",
   "type": "project",
   "require": {
-    "php": ">=8.0",
+    "php": "^8.1",
     "doctrine/orm": "^2.18",
-    "laminas/laminas-mvc": "^3.5",
-    "laminas/laminas-router": "^3.8",
-    "laminas/laminas-servicemanager": "^3.15",
-    "laminas/laminas-view": "^2.24"
+    "symfony/cache": "^6.4",
+    "laminas/laminas-mvc": "^3.5"
   },
   "autoload": {
     "psr-4": {
       "App\\": "src/",
       "Application\\": "module/Application/src/"
     }
+  },
+  "config": {
+    "sort-packages": true
   }
 }
